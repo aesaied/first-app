@@ -1,0 +1,45 @@
+<p>task-list works!</p>
+
+
+<input placeholder="add new task" #taskName />
+<button (click)="add(taskName.value)">Add</button>
+
+<table class="my-task-table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Task name</th>
+            <th scope="col">Manage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks; let ind =index; let myEven=even; let myOdd=odd" [class.done-tr]="task.isDone"
+            [ngClass]="{'odd-tr':myOdd,'even-tr':myEven}">
+            <td>
+
+                <input type="checkbox" (change)="selectedChange(task)" />
+                {{ind+1}}
+
+
+            </td>
+            <td>{{task.title}}</td>
+            <td>
+
+                <button [disabled]="task.isDone" (click)="delete(task)">Delete</button>
+
+                <button (click)="toggele(task)">{{!task.isDone?"Done":"Undo"}}</button>
+
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+<ul *ngIf="getSelectedTasks().length>0">
+    <li *ngFor="let  task of getSelectedTasks()">
+        {{task.title}}
+    </li>
+</ul>
+
+<div *ngIf="getSelectedTasks().length==0">No selected tasks</div>

@@ -1,0 +1,15 @@
+<fieldset>
+    <legend>{{title}} - {{subTitle}}</legend>
+
+
+
+
+
+    <input type="text" #myInput />
+    <ng-content></ng-content>
+
+
+    <button (click)="notifyClicked(myInput.value)">Notify</button>
+
+
+</fieldset>
