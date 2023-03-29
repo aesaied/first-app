@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoggerService } from '../Services/logger.service';
 import { Task } from './task';
 
 
@@ -10,6 +11,12 @@ import { Task } from './task';
 export class TaskListComponent {
 
 
+
+  constructor(private logger: LoggerService) {
+
+    logger.info('Task  list  created!');
+
+  }
   //  
   tasks: Task[] = [new Task('Task 1'), new Task('Task 2')];
 

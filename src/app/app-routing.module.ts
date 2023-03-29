@@ -6,10 +6,21 @@ import { AccountComponent } from './account/account.component';
 import { LoginComponent } from './account/login/login.component';
 import { FortgetPasswordComponent } from './account/fortget-password/fortget-password.component';
 import { TestContentComponent } from './test-content/test-content.component';
+import { TestParentComponent } from './test-parent/test-parent.component';
+import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 
 const routes: Routes = [
 
-  { path: '', component: TaskListComponent },
+  { path: '', component: TaskListComponent }
+
+
+  ,
+
+  { path: 'create-emp', component: CreateEmployeeComponent }
+  ,
+
+  { path: 'parent', component: TestParentComponent }
+  ,
 
   { path: 'second', component: SecondComponent }
   ,
@@ -20,6 +31,7 @@ const routes: Routes = [
     path: 'account', component: AccountComponent,
 
     children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       {
         path: 'forgetPassword', component: FortgetPasswordComponent
       }
@@ -27,8 +39,7 @@ const routes: Routes = [
       {
         path: 'login', component: LoginComponent
       }
-      ,
-      { path: '', redirectTo: '/login', pathMatch: 'full' },
+
 
 
 

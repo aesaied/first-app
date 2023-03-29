@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { LoggerService } from '../Services/logger.service';
 
 @Component({
   selector: 'app-second',
@@ -15,9 +16,12 @@ export class SecondComponent implements OnInit {
   // private route!: ActivatedRoute;
   // private router!: Router;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private logger: LoggerService) {
     // this.route = route;
     // this.router = router;
+
+
+    this.logger.info('Second component');
 
 
   }

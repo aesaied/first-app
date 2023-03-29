@@ -1,0 +1,74 @@
+<form #createEmpForm="ngForm" (ngSubmit)="onSumbit(createEmpForm)">
+
+    <p>
+        <label for="firstname">First Name</label>
+        <input [(ngModel)]="employee.firstname" type="text" id="firstname" name="firstname">
+    </p>
+
+    <p>
+        <label for="lastname">Last Name</label>
+        <input ngModel type="text" id="lastname" name="lastname">
+    </p>
+
+    <p>
+        <label for="email">Email </label>
+        <input ngModel type="text" id="email" name="email">
+    </p>
+
+    <p>
+        <label for="gender">Geneder</label>
+        <input [(ngModel)]="employee.gender" type="radio" value="male" id="gender" name="gender"> Male
+        <input [(ngModel)]="employee.gender" type="radio" value="female" id="gender" name="gender"> Female
+    </p>
+
+    <p>
+        <label for="isMarried">Married</label>
+        <input ngModel type="checkbox" id="isMarried" name="isMarried">
+    </p>
+
+    <p>
+        <label for="country">country </label>
+        <select [(ngModel)]="employee.country" name="country" id="country">
+            <option selected="" value=""></option>
+            <option [ngValue]="c.id" *ngFor="let c of countryList">
+                {{c.name}}
+            </option>
+        </select>
+    </p>
+
+    <div ngModelGroup="address">
+
+        <p>
+            <label for="city">City</label>
+            <input type="text" name="city" ngModel>
+        </p>
+
+        <p>
+            <label for="street">Street</label>
+            <input type="text" name="street" ngModel>
+        </p>
+        <p>
+            <label for="pincode">Pin Code</label>
+            <input type="text" name="pincode" ngModel>
+        </p>
+
+    </div>
+
+
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+
+</form>
+
+
+
+<button (click)="ResetForm()"> Reset form</button>
+
+
+
+{{createEmpForm.value | json}}
+
+<br>
+
+{{employee | json}}
